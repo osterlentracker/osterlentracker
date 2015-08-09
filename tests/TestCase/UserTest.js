@@ -41,7 +41,7 @@ export class UserTest extends IntegrationTestCase
 			setTimeout(resolve, 2000);
 		});
 		user = await this.Users.find().where({id: 'ad24b561-5d5b-433a-93d3-5e64b306055a'}).first();
-		console.log(user);
+		//console.log(user);
 		this.assertEquals({
 			news: false,
 			email: true,

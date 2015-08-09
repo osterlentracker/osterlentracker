@@ -1,4 +1,5 @@
-var path = require('path');
+import paths from './paths';
+import cakejs from 'cakejs';
+import Type from 'Cake/Database/Type';
 
-global.ROOT = path.resolve(__dirname, '..');
-require('cakejs');
+//Type.map('options')
