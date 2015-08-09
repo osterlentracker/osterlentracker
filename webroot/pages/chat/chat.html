@@ -1,0 +1,19 @@
+<div>
+
+	<h2><i class="fa fa-comments"></i>   Chat</h2>
+
+	<div data-bind="if: isAuthenticated">
+
+		<div class="row collapse">
+			<div class="small-9 columns">
+				<input type="text" style="height: 44px" id="chatTextArea" data-bind="textInput: message, valueUpdate: afterkeydown, event: { 'keyup': send }" placeholder="Skriv ett meddelande här!" />
+			</div>
+			<div class="small-3 columns">
+				<button class="button small" data-bind="click: send"><i class="fa fa-send"></i></button>
+			</div>
+		</div>
+
+		<div data-bind="component: { name: 'chat2' }"></div>
+
+	</div>
+</div>

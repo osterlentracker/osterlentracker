@@ -1,0 +1,16 @@
+<div class="sponsors" data-bind="template: { afterRender: initialize }">
+	<div class="overlay" data-bind="fadeVisible: display">
+		<div class="dialog_large hide-for-small-only">
+			<b>Stort tack till våra sponsorer</b><br/>
+			<!-- ko foreach: sponsors -->
+			<img data-bind="attr: {src: image, title: name}, click: click"/>
+			<!-- /ko -->
+		</div>
+		<div class="dialog_small show-for-small-only">
+			<b>Stort tack till våra sponsorer</b><br/>
+			<!-- ko foreach: sponsors -->
+			<img data-bind="attr: {src: image, title: name}, click: click"/>
+			<!-- /ko -->
+		</div>
+	</div>
+</div>

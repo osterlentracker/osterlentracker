@@ -1,0 +1,14 @@
+<div>
+	<h2><i class="fa fa-comments"></i>   Forum</h2>
+	
+	<br />
+
+	<!-- ko if: categories() !== null -->
+	<div data-bind="foreach: categories">
+		<div data-bind="click: $parent.onChangeCategory" class="forumCategory round">
+			<h3 data-bind="html: title"></h3>
+			<p data-bind="html: description"></p>
+		</div>
+	</div>
+	<!-- /ko -->
+</div>

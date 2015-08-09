@@ -1,0 +1,65 @@
+<div data-bind="template: { afterRender: init }">
+	<div class="settings" data-bind="if: display();">
+		<h2><i class="fa fa-cog"></i>  Inställningar</h2>
+		<form data-bind="submit: onSaveSettings">
+			<fieldset>
+				<legend>Utskicksrelaterade inställningar</legend>
+				<input type="checkbox" name="options" value="news" data-bind="checked: fields().options.news"/> <span class="center">Ta emot nyheter</span><br/>
+				<input type="checkbox" name="options" value="email" data-bind="checked: fields().options.email"/> <span class="center">Ta emot notifikationer via Epost</span><br/>
+				<input type="checkbox" name="options" value="sms" data-bind="checked: fields().options.sms"/> <span class="center">Ta emot notifikationer via SMS</span><br/>
+			</fieldset>
+			<fieldset>
+				<legend>Användaruppgifter</legend>
+				<div class="large-6 columns">
+					<label data-bind="css: {error: fields().email.error !== null}">Epost</label>
+					<input type="text" name="email" data-bind="value: fields().email.value, attr: {title: fields().email.error}"/>
+				</div>
+				<div class="large-6 columns">
+					<label data-bind="css: {error: fields().cell_phone.error !== null}">Mobilnummer</label>
+					<input type="text" name="cell_phone" data-bind="value: fields().cell_phone.value, attr: {title: fields().cell_phone.error}"/>
+				</div>
+			</fieldset>
+			<button type="submit">Spara</button>
+			<span data-bind="if: error() === true" class="failed">Formuläret är felaktigt ifyllt</span>
+			<span data-bind="if: error() === false" class="success">Formuläret sparades</span>	
+			<fieldset class="hide-for-small">
+				<legend>Varningsområden</legend>
+				<div data-bind="component: { name: 'interactivemap' }"></div> 
+				<div class="controls" data-bind="visible: controlsVisible">
+					<button data-bind="click: createNewWarningZone">Skapa nytt varningsområde</button>
+				</div>
+				<div class="warnings">
+					<table>
+						<thead>
+							<tr>
+								<th style="width: 13em;">Storlek</th>
+								<th style="width: 13em;">Blixtar på fem min</th>
+								<th>Namn</th>
+								<th style="width: 4em;">SMS</th>
+								<th style="width: 4em;">Epost</th>
+								<th style="width: 3em;"></th>
+							</tr>
+						</thead>
+						<tbody data-bind="foreach: warningZones ">
+							<tr data-bind="if: (latitude() !== null)">
+								<td><input type="range" min="30" max="100" step="10" data-bind="value: radius"/> <span class="center"><span data-bind="text: radius"></span> km</span></td>
+								<td><input type="range" min="5" max="200" step="5" data-bind="value: amount"/> <span class="center"><span data-bind="text: amount"></span> blixtar</span></td>
+								<td><input type="text" style="width:100%;" data-bind="value: name"/></td>
+								<td class="center"><input type="checkbox" data-bind="checked: sms"/></td>
+								<td class="center"><input type="checkbox" data-bind="checked: email"/></td>
+								<th><span data-bind="click: remove" style="color: white; position: relative; top: -8px; font-size: 20px; cursor: pointer;" class="fa fa-trash-o"></span></th>
+							</tr>
+							<tr data-bind="if: (latitude() === null)">
+								<td colspan="3">Klicka på kartan för att placera varningsområdet</td>
+								<td colspan="3"><button data-bind="click: $parent.cancel">Avbryt</button></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</fieldset>
+			<button type="submit">Spara</button>
+			<span data-bind="if: error() === true" class="failed">Formuläret är felaktigt ifyllt</span>
+			<span data-bind="if: error() === false" class="success">Formuläret sparades</span>	
+		</form>
+	</div>
+</div>

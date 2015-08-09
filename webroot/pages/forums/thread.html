@@ -1,0 +1,112 @@
+<a data-bind="click: goBack"><i class="fa fa-backward"></i>    Välj ett annat ämne</a>
+
+<div>
+	<!-- ko if: topic() !== null -->
+	<h2 data-bind="html: topic().title"></h2>
+	
+	<article class="forumPost">
+		<div class="postTitle">
+			<!-- ko if: $parent.user() !== null && ($parent.user().id === topic().user_id || $parent.user().administrator) -->
+			<a style="float: right" data-bind="click: deleteTopic">Ta bort</a>
+			<!-- /ko -->					
+		</div>			
+		<div style="clear: both" class="postBody">
+			<p style="white-space: pre-wrap" data-bind="html: bbPost(topic().body)"></p>
+		</div>
+		<footer>
+			<div class="postData">
+				<div>Skrivet av: <span data-bind="text: topic().user.nickname"></span></div>
+				<div>Skapad: <span data-bind="text: new Date(topic().created).format('yyyy-MM-dd hh:mm:ss')"></span>	</div>			
+			</div>
+		</footer>
+	</article>
+	<!-- /ko -->
+
+	<!-- ko if: posts().length > 0 -->
+	
+	<hr />
+	
+	<!-- ko if: currentPage() > 0 -->
+	<a style="float: left" data-bind="click: gotoPrevPage"><i class="fa fa-arrow-circle-left"></i> Tidigare kommentarer</a>
+	<!-- /ko -->
+	<!-- ko if: currentPage() < maxPages() -->
+	<a style="float: right" data-bind="click: gotoNextPage">Nästa kommentarer <i class="fa fa-arrow-circle-right"></i></a>
+	<!-- /ko -->
+	
+	<div style="clear: both"></div>
+	
+	<div data-bind="foreach: pagedPosts">
+	<article class="forumPost">
+		<div class="postBody">
+			<p style="float: left" data-bind="html: $parent.bbPost(body)"></p>
+			<!-- ko if: $parent.user() !== null && ($parent.user().id === user_id || $parent.user().administrator) -->
+			<span style="float: right">
+				<a data-bind="click: $parent.editPost.bind($parent)">Redigera</a> / 
+				<a data-bind="click: $parent.deletePost">Ta bort</a>			
+			</span>
+			<!-- /ko -->			
+		</div>
+		<footer style="clear: both">
+			<div class="postData">
+				<div>Skriven av: <span data-bind="text: nickname"></span></div>
+				<div>Skapad: <span data-bind="text: new Date(updated).format('yyyy-MM-dd hh:mm')"></span>	</div>			
+			</div>
+		</footer>
+	</article>
+	</div>
+	
+	<!-- ko if: currentPage() > 0 -->
+	<a style="float: left" data-bind="click: gotoPrevPage"><i class="fa fa-arrow-circle-left"></i> Tidigare kommentarer</a>
+	<!-- /ko -->
+	<!-- ko if: currentPage() < maxPages() -->
+	<a style="float: right" data-bind="click: gotoNextPage">Nästa kommentarer <i class="fa fa-arrow-circle-right"></i></a>
+	<!-- /ko -->
+
+	<div style="clear: both"></div>
+	
+	<!-- /ko -->
+
+	<div data-bind="visible: user() === null">			
+		<p>Du måste vara inloggad för att kommentera.</p>
+	</div>
+	
+	<span id="commenting"></a>
+	
+	<div data-bind="visible: user() !== null">
+		<form class="forumElement" data-bind="submit: onSavePost">
+			<fieldset>
+				<legend>Kommentera</legend>
+
+				<div data-bind="genericValidationError"></div>
+				
+				<label for="body">Skriv en ny kommentar</label>
+				<textarea name="body" id="postBody" data-bind="textInput: commentField().value" rows="10" required="required"></textarea>
+				<span data-bind="bodyValidationError"></span>
+				<button type="submit">Skapa</button>			
+				<div>
+					<em>Innehållet har stöd för så kallad BB-kod som beskriver hur texten skall presenteras.</em>
+					<dl>
+						<dt>[b]text[/b]</dt>
+						<dd>Visar <code>text</code> i fet stil.</dd>
+						<dt>[i]text[/i]</dt>
+						<dd>Visar <code>text</code> i kursiv stil.</dd>
+						<dt>[quote]text[/quote]</dt>
+						<dd>Visar <code>text</code> som citerad.</dd>
+						<dt>[code]text[/code]</dt>
+						<dd>Visar <code>text</code> i monospace typsnitt.</dd>
+						<dt>[size=storlek]text[/size]</dt>
+						<dd>Visar <code>text</code> i storleken <code>storlek</code> pixlar.</dd>
+						<dt>[color=färg]text[/color]</dt>
+						<dd>Visar <code>text</code> i färgen <code>färg</code> (ex: red, green).</dd>					
+						<dt>[url]address[/url]</dt>
+						<dd>Visar en länk till <code>address</code>.</dd>
+						<dt>[img]address[/img]</dt>
+						<dd>Visar den bild som finns på <code>address</code>.</dd>
+					</dl>				
+				</div>
+
+			</fieldset>
+		</form>
+	</div>
+</div>
+

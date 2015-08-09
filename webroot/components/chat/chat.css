@@ -1,0 +1,13 @@
+ul.chat {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.chat .post {
+	
+}
+
+.chat .date {
+	margin-bottom: 100px !important;
+}

@@ -1,0 +1,92 @@
+<a data-bind="click: goBack"><i class="fa fa-backward"></i>    Välj en annan kategori</a>
+
+<!-- ko if: category() !== null -->
+<h2 data-bind="text: category().title"></h2>
+<!-- /ko -->
+
+<div class="tableTopics">
+	<!-- ko if: topics().length > 0 -->
+	<table>
+		<thead>
+			<tr>
+				<th>Ämne</th>
+				<th>Skapad</th>
+				<th>Senast uppdaterad</th>
+			</tr>
+		</thead>
+		<tfoot>
+			<tr>
+				<td colspan="3">
+					<br />
+					
+					<!-- ko if: currentPage() > 0 -->
+					<a data-bind="click: gotoPrevPage"><i class="fa fa-arrow-circle-left"></i> Tidigare ämnen</a>
+					<!-- /ko -->
+					Sida <span data-bind="text: (currentPage()+1)"></span> av <span data-bind="text: (maxPages()+1)"></span>
+					<!-- ko if: currentPage() < maxPages() -->
+					<a data-bind="click: gotoNextPage">Nästa ämnen <i class="fa fa-arrow-circle-right"></i></a>
+					<!-- /ko -->
+				</td>
+			</tr>
+		</tfoot>
+		<tbody data-bind="foreach: pagedTopics">
+			<tr data-bind="click: $parent.onChangeTopic">
+				<td><strong data-bind="html: title"></strong></td>
+				<td data-bind="text: new Date(created).format('yyyy-MM-dd hh:mm')"></td>
+				<td data-bind="text: new Date(updated).format('yyyy-MM-dd hh:mm')"></td>
+			</tr>
+		</tbody>
+	</table>
+	<!-- /ko -->
+	
+	<!-- ko if: topics().length === 0 -->
+	<div>
+		Här var det tomt på ämnen att diskutera.
+	</div>
+	<!-- /ko -->
+	
+	<span data-bind="visible: user() === null">
+		Du måste vara inloggad för att skapa nya ämnen i forumet.
+	</span>
+	<div data-bind="visible: user() !== null">
+		<form class="forumElement" data-bind="submit: onSaveTopic">
+			<fieldset>
+				<legend>Skapa nytt ämne</legend>
+
+				<div data-bind="genericValidationMessage"></div>
+				
+				<label for="title">Titel</label>
+				<input type="text" name="title" id="topicTitle" required="required" autocomplete="off" />
+				<span data-bind="titleValidationMessage"></span>
+
+				<label for="body">Innehåll</label>
+				<textarea name="body" id="topicBody" rows="10" required="required"></textarea>
+				<span data-bind="bodyValidationMessage"></span>
+				
+				<button type="submit">Skapa</button>
+				
+				<div>
+					<em>Innehållet har stöd för så kallad BB-kod som beskriver hur texten skall presenteras.</em>
+					<dl>
+						<dt>[b]text[/b]</dt>
+						<dd>Visar <code>text</code> i fet stil.</dd>
+						<dt>[i]text[/i]</dt>
+						<dd>Visar <code>text</code> i kursiv stil.</dd>
+						<dt>[quote]text[/quote]</dt>
+						<dd>Visar <code>text</code> som citerad.</dd>
+						<dt>[code]text[/code]</dt>
+						<dd>Visar <code>text</code> i monospace typsnitt.</dd>
+						<dt>[size=storlek]text[/size]</dt>
+						<dd>Visar <code>text</code> i storleken <code>storlek</code> pixlar.</dd>
+						<dt>[color=färg]text[/color]</dt>
+						<dd>Visar <code>text</code> i färgen <code>färg</code> (ex: red, green).</dd>					
+						<dt>[url]address[/url]</dt>
+						<dd>Visar en länk till <code>address</code>.</dd>
+						<dt>[img]address[/img]</dt>
+						<dd>Visar den bild som finns på <code>address</code>.</dd>
+					</dl>				
+				</div>
+			</fieldset>
+		</form>
+	</div>
+</div>

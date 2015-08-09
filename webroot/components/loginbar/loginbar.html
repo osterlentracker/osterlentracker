@@ -1,0 +1,12 @@
+<div id="loginbar" style="margin: 0px auto; max-width: 62.5rem;">
+	<span class="right">
+		<span data-bind="visible: user() === null">
+			<a class="link" data-bind="click: login" href="#"><i class="fa fa-sign-in"></i>    Logga in / Registrera</a>
+		</span>
+		<span data-bind="visible: user() !== null"> 
+			<span data-bind="text: (user() === null?'':user().nickname)"></span> &sdot; 
+			<a href="#settings"><i class="fa fa-cog"></i>    Inställningar</a> &sdot; 
+			<a class="link" data-bind="click: logout" href="#"><i class="fa fa-sign-out"></i>    Logga ut</a>
+		</span>
+	</span>
+</div>

@@ -1,0 +1,26 @@
+<div style="padding: 8px; background: #333333">
+
+	<i data-bind="if: (messages().length === 0)">Inga meddelanden.</i>
+
+	<ul class="chat" data-bind="foreach: messages.slice(0).reverse()">
+		<li>
+			<div class="chat post" style="margin: 25px">
+				<div class="row">
+					<div class="small-1 columns">
+						<i class="fa fa-quote-left"></i>
+					</div>
+					<div class="small-11 columns">
+						<b class="date"><span data-bind="text: author.nickname"></span></b><br />
+						<div>
+							<span data-bind="text: message"></span>
+						</div>
+						<small><span data-bind="text: new Date(date).format('yyyy-MM-dd hh:mm')"></span></small>
+						<br />
+						<br />
+					</div>
+				</div>
+			</div>
+		</li>
+	</ul>
+
+</div>

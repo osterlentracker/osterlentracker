@@ -1,0 +1,24 @@
+<h4><i class="fa fa-newspaper-o"></i>   Senaste</h4>
+<div id="social_sidebar" class="social">
+	<ul id="socialdiv" class="side-nav social" style="overflow-y: hidden; margin-bottom: 20px" data-bind="foreach: visibleItems">
+		<li class="post">
+			<a style="padding: 0px 0px 20px 0px" data-bind="attr: { href: typeof link !== 'undefined' ? link : 'javascript:void(0);'  }" target="_blank">
+				<b class="date"><i class="fa fa-facebook-square" data-bind="visible: source === 'facebook'"></i><i class="fa fa-comments" data-bind="visible: source === 'forum' && type === 'topic'"></i><i class="fa fa-quote-left" data-bind="visible: source === 'forum' && type === 'post'"></i>  <span data-bind="text: new Date(date).format('yyyy-MM-dd hh:mm')"></span></b><br />
+				<img class="image" data-bind="visible: (typeof picture !== 'undefined'), attr: { src: typeof picture !== 'undefined' ? picture : null }" /><br data-bind="visible: (typeof picture !== 'undefined')"  />
+				<!-- ko if: type === 'topic' -->
+				<div data-bind="click: function(data, event){window.location.href='/#forums/cb0d55e2-dbca-7335-ec2f-3a167f552785/thread/' + data.id; $('html, body').animate({ scrollTop: 0 }, 'slow');}">
+					<span class="content" data-bind="text: message"></span>
+				</div>
+				<!-- /ko -->
+				<!-- ko if: type === 'post' -->
+				<div data-bind="click: function(data, event){window.location.href='/#forums/cb0d55e2-dbca-7335-ec2f-3a167f552785/thread/' + extra2; $('html, body').animate({ scrollTop: 0 }, 'slow');}">
+					<span class="content" data-bind="text: message"></span>
+				</div>
+				<!-- /ko -->
+				<!-- ko if: source === 'facebook' -->
+				<span class="content" data-bind="text: message"></span>
+				<!-- /ko -->
+			</a>
+		</li>
+	</ul>
+</div>

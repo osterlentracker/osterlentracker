@@ -1,0 +1,11 @@
+.social .date {
+	margin-bottom: 100px !important;
+}
+
+.truncate {
+	width: 200px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: inline-block;
+}

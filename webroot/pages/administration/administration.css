@@ -1,0 +1,26 @@
+.administration {
+	
+}
+
+.administration table {
+	width: 100%;
+}
+
+.administration table tbody tr {
+	cursor: pointer;
+}
+
+.administration .users table {
+	
+}
+
+.administration .users td {
+	white-space: nowrap;
+}
+
+.administration .users td:nth-child(2) div{
+	width: 160px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}

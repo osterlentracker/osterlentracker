@@ -1,0 +1,75 @@
+.settings {
+	
+}
+
+.settings legend {
+	background-color: transparent;
+}
+
+.settings label {
+	/*font-size: 1.5em;*/
+	font-weight: bold;
+}
+
+.settings input, .settings textarea:focus {
+	outline-width: 0;
+}
+
+.settings label.error {
+	color: red;
+}
+
+.settings span.success {
+	color: green;
+	font-size: 1.6em;
+	margin-left: 10px;
+}
+
+.settings span.failed {
+	color: red;
+	font-size: 1.6em;
+	margin-left: 10px;
+}
+
+.settings .controls {
+}
+
+.settings .warnings input {
+	width: 50%;
+}
+
+.settings .warnings table {
+	width: 100%;
+	background: transparent;
+}
+
+.settings .center {
+	position: relative;
+	top: -5px;
+}
+
+.settings .warnings span.center {
+	position: relative;
+	top: -9px;
+}
+
+.settings .warnings td.center {
+	text-align: center;
+}
+
+.settings .warnings table tr, .interactivemap table td, .interactivemap table tr:hover {
+	background: transparent !important;
+}
+
+.settings input[type=checkbox] {width:1.5em; height:1.5em; cursor: pointer;}
+
+.settings .warnings input[type=range] {
+	position: relative;
+	top: -4px;
+	cursor: pointer;
+}
+
+.settings .warnings input[type=checkbox] {
+	position: relative;
+	top: 5px;
+}

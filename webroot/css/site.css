@@ -1,0 +1,213 @@
+.inner-wrap {
+	/*height: 100%;*/
+}
+
+header {
+	height: 90px;
+	margin: 0px auto;
+	max-width: 62.5rem;
+}
+
+.main-section {
+	padding-top: 20px;
+}
+
+.top-bar-section ul li {
+	font-size: 24px;
+	color: #f4bd00;
+	cursor: pointer;
+}
+
+#logotype {
+	width: 450px;
+	position: relative;
+	top: 20px;
+	left: 15px;
+}
+
+body {
+	background-color: #2b2b2b;
+	color: white;
+	overflow-y:scroll;
+
+	padding: 0;
+	margin: 0;
+	/*font-family: Arial, Helvetica, sans-serif;*/
+	/*font-size: 14pt !important;*/
+	font-weight: normal;
+	font-style: normal;
+	line-height: 1.5;
+	position: relative;
+	cursor: auto;
+}
+
+.off-canvas-wrap, .off-canvas-wrap > .inner-wrap {
+  min-height: 100vh;
+}
+
+p {
+	color: white;
+}
+
+p.ingress {
+	text-align: center; 
+	font-size: 20px; 
+	text-align: center; 
+	font-weight: 400;
+}
+
+h1, h2, h3, h4, h5 {
+	font-family: "Archivo Narrow", sans-serif;
+	color: white;
+}
+
+h2 {
+	
+}
+
+.top-bar-section ul li > a {
+	font-family: "Archivo Narrow", sans-serif;
+	font-size: 1.5rem;
+}
+
+.side-nav {
+	font-size: 1rem;
+}
+
+.side-nav li {
+	font-size: 1rem;
+}
+
+a {	
+	color: lightgray !important;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+a:hover {	
+	color: white !important;
+}
+
+a:active {	
+	
+}
+
+a.link {
+	color: #f4bd00 !important;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+a.link:hover {
+	color: #FFDF75 !important;
+	cursor: pointer;
+}
+
+#aboutdiv.side-nav {
+	font-family: "Archivo Narrow", sans-serif;
+}
+
+#aboutdiv.side-nav li a:not(.button) {
+	color: lightgray !important;
+	font-size: 14pt;
+}
+
+#socialdiv.side-nav li a:not(.button) {
+	color: lightgray !important;
+}
+
+#socialdiv.side-nav li a:not(.button):hover {
+	color: white !important;
+}
+
+#aboutdiv.side-nav li.active > a { 
+    color: #f4bd00 !important;
+	background-color: transparent !important;
+	font-family: "Archivo Narrow", sans-serif !important;
+}
+
+#aboutdiv.side-nav li a:not(.button):hover {
+	color: white !important;
+}
+
+.side-nav li a:not(.button):hover {
+	color: white !important;
+}
+
+.side-nav li.active > a { 
+    color: #f4bd00 !important;
+	background-color: transparent !important;
+	font-family: "Archivo Narrow", sans-serif !important;
+}
+
+.top-bar-section li a:not(.button) {
+    color: lightgrey !important;
+}
+
+.top-bar-section li a:not(.button):hover {
+    color: white !important;
+}
+
+.top-bar-section ul li.active > a { 
+    color: #f4bd00 !important;
+	background-color: transparent !important;
+}
+
+/**
+ * Overriding foundations style for default elements
+ */
+
+button {
+	background-color: #2b2b2b;
+	border: thin solid #ffffff;
+}
+
+button:hover, button:focus, .button:hover, .button:focus {
+    background-color: #4b4b4b; 
+}
+
+button:active, button:focus {
+	border: thin solid #f4bd00 !important;
+}
+
+legend {
+	background-color: transparent !important;
+}
+
+label {
+	/*font-size: 1.5em;*/
+	color: lightgray;
+	font-weight: bold;
+	cursor: default;
+}
+
+table {
+	background: transparent;
+	color: white;
+	border: none;
+}
+
+table tbody tr {
+	background-color: transparent;
+}
+
+table tbody tr:nth-child(even) {
+	background-color: #333;
+}
+
+table tbody tr:hover {
+	background-color: #444;
+}
+
+table tbody td {
+	color: white;
+}
+
+footer {
+	padding: 10px;
+}
+
+footer > hr {
+	margin-left: 20px;
+	margin-right: 20px;
+}

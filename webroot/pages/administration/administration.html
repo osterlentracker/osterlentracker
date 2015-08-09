@@ -1,0 +1,128 @@
+﻿<div class="administration" data-bind="if: display()">
+    <h2><i class="fa fa-sliders"></i>   Administration</h2>
+	<fieldset>
+		<legend>Sponsorer ( <span data-bind="text: sponsors().length"></span> st )</legend>
+		<table>
+			<thead>
+				<tr>
+					<th>Namn</th>
+					<th class="hide-for-small" style="width:100px;">Klick</th>
+					<th class="hide-for-small" style="width:130px;">Börjar</th>
+					<th class="hide-for-small" style="width:130px;">Slutar</th>
+					<th style="width:80px;">Aktiv</th>
+				</tr>
+			</thead>
+			<tbody data-bind="foreach: sponsors()">
+				<tr data-bind="click: $parent.openSponsor.bind($parent)">
+					<td data-bind="text: name"></td>
+					<td class="hide-for-small" data-bind="text: clicks"></td>
+					<td class="hide-for-small" data-bind="text: begin_date" style="text-align: center;"></td>
+					<td class="hide-for-small" data-bind="text: end_date" style="text-align: center;"></td>
+					<td data-bind="text: (visible()?'Ja':'Nej')" style="text-align: center;"></td>
+				</tr>
+			</tbody>
+		</table>
+	</fieldset>
+	<button data-bind="visible: !displayCreateSponsor(), click: toggleDisplayCreateSponsor">Skapa ny sponsor</button>
+	<fieldset data-bind="fadeVisible: displayCreateSponsor()">
+		<legend data-bind="text: sponsorFields().id.value !== null?'Ändra på sponsor':'Skapa ny sponsor'"></legend>
+		<div class="row">
+			<div class="large-6 columns">
+				<label data-bind="css: {error: sponsorFields().name.error !== null}">Namn</label>
+				<input type="text" data-bind="value: sponsorFields().name.value, attr: {title: sponsorFields().name.error}"/>
+			</div>
+			<div class="large-6 columns">
+				<label data-bind="css: {error: sponsorFields().url.error !== null}">URL till hemsida</label>
+				<input type="text" data-bind="value: sponsorFields().url.value, attr: {title: sponsorFields().url.error}"/>
+			</div>
+		</div>
+		<div class="row">
+			<div class="large-6 columns">
+				<label data-bind="css: {error: sponsorFields().image.error !== null}">URL till bild</label>
+				<input type="text" data-bind="value: sponsorFields().image.value, attr: {title: sponsorFields().image.error}"/>
+			</div>
+			<div class="large-6 columns">
+				<label data-bind="css: {error: sponsorFields().enabled.error !== null}">Synlighet</label>
+				<select data-bind="value: sponsorFields().enabled.value, attr: {title: sponsorFields().enabled.error}">
+					<option value="1">Visa vid möjlighet</option>
+					<option value="0">Dold hela tiden</option>
+				</select>
+			</div>
+		</div>
+		<div class="row">
+			<div class="large-6 columns">
+				<label data-bind="css: {error: sponsorFields().begin_date.error !== null}">Börja visas när datum infaller</label>
+				<input type="date" data-bind="value: sponsorFields().begin_date.value, attr: {title: sponsorFields().begin_date.error}"/>
+			</div>
+			<div class="large-6 columns">
+				<label data-bind="css: {error: sponsorFields().end_date.error !== null}">Sluta visas när datum infaller</label>
+				<input type="date" data-bind="value: sponsorFields().end_date.value, attr: {title: sponsorFields().end_date.error}"/>
+			</div>
+		</div>
+		<button class="right" data-bind="visible: displayCreateSponsor() && sponsorFields().id.value !== null, click: deleteSponsor">Ta bort</button>
+		<button data-bind="visible: displayCreateSponsor(), click: saveSponsor">Spara</button>
+		<button data-bind="visible: displayCreateSponsor(), click: toggleDisplayCreateSponsor">Avbryt</button>
+	</fieldset>
+	<fieldset>
+		<legend>Användare ( <span data-bind="text: users().length"></span> st )</legend>
+		<table class="users">
+			<thead>
+				<tr>
+					<th>Namn</th>
+					<th style="width:165px;" class="hide-for-small">Epost</th>
+					<th style="width:140px;">Senast inloggad</th>
+					<th class="hide-for-small" style="width:140px;">Skapades</th>
+				</tr>
+			</thead>
+			<tbody data-bind="foreach: users()">
+				<tr>
+					<td data-bind="text: nickname"></td>
+					<td class="hide-for-small" data-bind="attr: {title: email}"><div data-bind="text: email"></div></td>
+					<td data-bind="text: last_login" style="text-align: center;"></td>
+					<td class="hide-for-small" data-bind="text: created" style="text-align: center;"></td>
+				</tr>
+			</tbody>
+		</table>
+	</fieldset>
+	<!-- Forum ---------------------------------------->
+	<fieldset>
+		<legend>Forum</legend>
+		<table>
+			<thead>
+				<tr>
+					<th>Ämne</th>
+					<th>Beskrivning</th>
+				</tr>
+			</thead>
+			<tbody data-bind="foreach: forumCategories">
+				<tr data-bind="click: $parent.openForumCategory.bind($parent)">
+					<td data-bind="text: title"></td>
+					<td data-bind="text: description"></td>
+				</tr>
+			</tbody>
+		</table>
+	</fieldset>
+	<button data-bind="visible: !displayForumCreateCategory(), click: toggleCreateForumCategory">Skapa ny kategori</button>
+	<fieldset data-bind="fadeVisible: displayForumCreateCategory()">		
+		<legend data-bind="text: forumCategoryFields().id.value !== null?'Ändra på kategori':'Skapa ny kategori'"></legend>
+		<div class="row">
+			<div class="large-6 columns">
+				<label data-bind="css: {error: forumCategoryFields().title.error !== null}">Namn</label>
+				<input type="text" data-bind="value: forumCategoryFields().title.value, attr: {title: forumCategoryFields().title.error}"/>
+			</div>
+			<div class="large-6 columns">
+				<label data-bind="css: {error: forumCategoryFields().description.error !== null}">Beskrivning</label>
+				<input type="text" data-bind="value: forumCategoryFields().description.value, attr: {title: forumCategoryFields().description.error}"/>
+			</div>
+		</div>		
+		<button class="right" data-bind="visible: displayForumCreateCategory() && forumCategoryFields().id.value !== null, click: deleteForumCategory">Ta bort</button>
+		<button data-bind="visible: displayForumCreateCategory(), click: saveForumCategory">Spara</button>
+		<button data-bind="visible: displayForumCreateCategory(), click: toggleCreateForumCategory">Avbryt</button>
+	</fieldset>
+
+	<!------- Separera 'Ladda in allt på nytt' och 'Skapa ny kategori' knapparna. -->
+	<div style="margin-top: 1.5em;"></div>
+	<!-- Forum -------------------------->
+	
+	<button data-bind="click: reload">Ladda in allt på nytt</button>
+</div> 

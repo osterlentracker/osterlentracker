@@ -1,0 +1,120 @@
+{
+	"articles": [
+		{
+			"title": "Jakten på den perfekta åskan.",
+			"date": "27 aug 2011",
+			"summary": "En ganska bra sommar. Väldigt många blixtar i maj och en del i juli. \"Ja, sådär. Det kunde varit lite",
+			"image": "/img/viewpress/ystads_allehanda1"
+		},
+		{
+			"title": "På jakt efter blixt och dunder.",
+			"date": "19 jul 2011",
+			"summary": "De flesta gömmer sig inomhus när åskan går, men det gäller inte om man är åskjägare som Krister ...",
+			"image": "/img/viewpress/sydostran"
+		},
+		{
+			"title": "På jakt efter blixt och dunder.",
+			"date": "15 jul 2011",
+			"summary": "På jakt efter blixt och dunder där det blixtrar och dundrar som värst, där vill Krister och Fredrik ...",
+			"image": "/img/viewpress/krister_fredrik"
+		},
+		{
+			"title": "Hemsidan har blivit en succé?",
+			"date": "30 jul 2008",
+			"summary": "-Milt sagt. Över 104 000 besök på ett år. Helt otroligt! ...",
+			"image": "/img/viewpress/halla_dar"
+		},
+		{
+			"title": "Blir det någon åska snart?",
+			"date": "30 jul 2008",
+			"summary": "Det ligger lite och snurrar över Danmark, men vindarna ligger fel, så chansen till åska över ...",
+			"image": "/img/viewpress/ett_ogonblick"
+		},
+		{
+			"title": "Åskjägarna kan varna för oväder i din mobil",
+			"date": "29 jul 2008",
+			"summary": "Flera kraftiga åskoväder har drabbat Skåne de senaste veckorna. Och fler är på gång ...",
+			"image": "/img/viewpress/metro1"
+		},
+		{
+			"title": "Ovädersspanare har fått mer att göra.",
+			"date": "29 jul 2008",
+			"summary": "Antalet privata åskspanare växer. Deras uppgift är att hålla koll på ovädren minut för minut och ...",
+			"image": "/img/viewpress/mediedagarna"
+		},
+		{
+			"title": "Varningsmejl till blixträdda.",
+			"date": "29 jul 2008",
+			"summary": "Antalet privata åskspanare växer. De håller koll på ovädren minut för minut och skickar varningsmejl ...",
+			"image": "/img/viewpress/osterlenmagasinet2"
+		},
+		{
+			"title": "Fascinerande naturkraft.",
+			"date": "29 jul 2008",
+			"summary": "Österlen har i sommar varit täämligen förskonat för åskväder. Samtidigt kan vi konstatera att åskan ...",
+			"image": "/img/viewpress/osterlenmagasinet1"
+		},
+		{
+			"title": "Killarna som är blixtsnabba",
+			"date": "29 jul 2008",
+			"summary": "Åskjägarna. Så kallas svågrarna Krister och Fredrik Ekblad som hellre vill ha oväder ...",
+			"image": "/img/viewpress/lokaltidningen"
+		},
+		{
+			"title": "Åskhemsida oväntad succé",
+			"date": "29 jul 2008",
+			"summary": "Åska fascinerar många människor. Det har Krister och Fredrik Ekblad i Simrishamn tagit fasta på ...",
+			"image": "/img/viewpress/tv4"
+		}
+	],
+	"soundtracks": [
+		{
+			"title": "Radio Kristianstad",
+			"date": "15 nov 2009",
+			"summary": "Blixtar och dunder i sommarmorgon. Roligt att så många hörde av sig imorse! Väder är ett ämne ...",
+			"thumbnail": "/img/viewpress/radiokr_small.jpg",
+			"text": "Blixtar och dunder i sommarmorgon.\nRoligt att så många hörde av sig i morse!\nVäder är ett ämne som engagerar många och Sommarmorgon handlade idag om åskväder.\nVi hade besök av Fredrik Ekblad och Krister Ekblad som bor på Österlen och spanar åska.\nÅskjägarna. Fredrik och Krister, båda Ekblad.\nKrister och Fredrik har nästan alltid varit intresserade\nav åska och nu driver de en hemsida där de spanar åskväder.\nVi fick in många olika frågor och berättelser om åskväder från er som lyssnar. \nVi fick bland annat veta hur man räknar ut hur långt bort ett åskväder verkligen är.\nDessutom fick vi bekräftat att bilen är det absolut säkraste\nstället att befinna sig på om det blixtrar och dundrar.",
+			"tracks": {
+				"Del 1": "/audio/viewpress/radiokristianstad1.mp3",
+				"Del 2": "/audio/viewpress/radiokristianstad2.mp3",
+				"Del 3": "/audio/viewpress/radiokristianstad3.mp3"
+			}
+		},
+		{
+			"title": "Radio Blekinge",
+			"date": "27 jul 2009",
+			"summary": "De senaste fem åren har blekingar fått 1,5 miljoner kronor i ersättning för skador som åskan orsakat ...",
+			"thumbnail": "/img/viewpress/tom_danielsson_small.jpg",
+			"text": "De senaste fem åren har blekingar fått 1,5 miljoner kronor i ersättning för skador som åskan orsakat på bland annat deras hus. Det visar siffror från Länsförsäkringar. Men det är inte alla som skyr åskan.",
+			"tracks": {
+				"Smakprov": "/audio/viewpress/teaser_turture_blekinge.mp3",
+				"Inslag": "/audio/viewpress/turture_blekinge_radio.mp3"
+			}
+		},
+		{
+			"title": "FM Österlen",
+			"date": "10 jun 2009",
+			"summary": "Sändes i den lokala radiostationen FM Österlen.",
+			"thumbnail": "/img/viewpress/radiokr_small2.jpg",
+			"text": "",
+			"tracks": {
+				"Inslag 1": "/audio/viewpress/tracker1.mp3",
+				"Inslag 2": "/audio/viewpress/tracker2.mp3",
+				"Inslag 3": "/audio/viewpress/tracker3.mp3"
+			}
+		},
+		{
+			"title": "Radio Malmöhus m.m.",
+			"date": "29 jul 2008",
+			"summary": "Sändes i Radio Kristianstad, Kronoberg, Halland och Malmöhus",
+			"thumbnail": "/img/viewpress/metro3_small.jpg",
+			"text": "",
+			"tracks": {
+				"Reklam": "/audio/viewpress/reklam.mp3",
+				"Nyheterna": "/audio/viewpress/nyheterna.mp3",
+				"Inslag": "/audio/viewpress/inslag.mp3",
+				"Vädret": "/audio/viewpress/vader.mp3"
+			}
+		}
+	]
+}

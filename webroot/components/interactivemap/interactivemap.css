@@ -1,0 +1,7 @@
+.interactivemap a {
+	color: black !important;
+}
+
+.interactivemap {
+	cursor: pointer !important;
+}

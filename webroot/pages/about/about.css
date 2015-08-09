@@ -1,0 +1,79 @@
+.about table {
+	width: 100%;
+}
+
+.about table thead th {
+	color: #90908a !important;
+	text-align: center;
+	font-size: 19px !important;
+	font-weight: bold;
+	width: 45%;
+}
+
+.about table thead {
+	background: none !important;
+}
+
+.about table tbody td {
+	vertical-align: top;
+	padding: 0;
+}
+
+.about table tbody tr:hover {
+	background: none;
+}
+
+.about .item {
+	vertical-align: top;
+	clear: both;
+	height:150px;
+	margin-bottom: 20px;
+	padding:5px;
+	border: 1px solid transparent;
+}
+
+.about .item:hover {
+	background: #333333;
+	cursor: pointer;
+}
+
+.about .item img {
+	float:left;
+	width: 80px;
+	height: 80px;
+	margin-right:10px;
+	display: inline-block;
+}
+
+.about .item h3 { 
+	color: #F4BD00;
+	font-weight: bold;
+	font-size: 16px;
+	margin:0px;
+	margin-bottom: 2px;
+	display: block;
+}
+
+.about .item .date {
+	font-size: 13px;
+	color: #90908A;
+	width: auto;
+	display: block;
+	margin-bottom: 2px;
+}
+
+.about .item .summary {
+	font-size: 15px;
+}
+
+.about #staff table tr td {
+	font-size: 20px !important;
+}
+
+.about #staff tr {
+	background: none !important;
+}
+
+.about #staff tr:hover {
+	background: none;
+}

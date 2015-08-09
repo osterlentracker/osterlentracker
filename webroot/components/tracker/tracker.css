@@ -1,0 +1,24 @@
+.tracker input {
+	width: 100%;
+}
+
+.tracker table {
+	width: 100%;
+	background: transparent;
+}
+
+.tracker table.controllers td:first-child {
+	width: 100px;
+}
+
+.tracker table.values td:last-child {
+	width: 100px;
+}
+
+.tracker table tr, .tracker table td, .tracker table tr:hover {
+	background: transparent !important;
+}
+
+.tracker a {
+	color: black !important;
+}

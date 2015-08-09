@@ -1,0 +1,16 @@
+!*
+nbproject
+logs
+*.log
+pids
+*.pid
+*.seed
+lib-cov
+coverage
+.grunt
+.lock-wscript
+dist
+node_modules
+lib
+jspm_packages
+config/app.json

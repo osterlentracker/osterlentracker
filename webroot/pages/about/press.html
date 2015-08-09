@@ -1,0 +1,61 @@
+<div class="about"> 
+	<div class="large-3 columns">
+		<div data-bind="component: { name: 'about-menu' }"></div>
+	</div>
+
+	<div class="large-9 columns">
+		<h2><i class="fa fa-newspaper-o"></i>   Pressografi</h2>
+
+		<br />
+
+		<p class="ingress">Här hittar du tidningsartiklar och radioklipp<br/>som gjorts om oss.</p>
+
+		<br />
+
+		<div class="row">
+			<div class="large-6 columns">
+				<table>
+					<thead>
+						<tr>
+							<th>Tidningsartiklar</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td data-bind="foreach: articles">
+								<div class="item article" data-bind="click: click">
+									<img data-bind="attr:{src: thumbnail}" alt="bild">
+									<h3 data-bind="text: title"></h3>
+									<span class="date"><span class="fa fa-calendar"></span> <span data-bind="text: date"></span></span>
+									<span class="summary" data-bind="text: summary"></span>
+								</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="large-6 columns">
+				<table>
+					<thead>
+						<tr>
+							<th>Radioklipp</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td data-bind="foreach: soundtracks">
+								<div class="item article" data-bind="click: click">
+									<img data-bind="attr:{src: thumbnail}" alt="bild">
+									<h3 data-bind="text: title"></h3>
+									<span class="date"><span class="fa fa-calendar"></span> <span data-bind="text: date"></span></span>
+									<span class="summary" data-bind="text: summary"></span>
+								</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+	</div>
+</div>
