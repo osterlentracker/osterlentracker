@@ -1,5 +1,5 @@
 import paths from './paths';
 import cakejs from 'cakejs';
-import Type from 'Cake/Database/Type';
+import { Type } from 'Cake/Database/Type';
 
-//Type.map('options')
+Type.map('options_bitwise', 'App/Database/Type/OptionsBitwiseType');

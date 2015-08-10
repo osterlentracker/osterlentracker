@@ -28,8 +28,8 @@ export class UsersFixture extends TestFixture
 			cell_phone: '123-1234123',
 			last_login: null,
 			flags: 63,
-			activated: new Date(),
-			created: new Date()
+			activated: new Date().format("yyyy-mm-dd HH:MM:ss"),
+			created: new Date().format("yyyy-mm-dd HH:MM:ss")
 		},
 		{
 			id: '6386bc26-c784-8f8c-22ab-2b48af154623',
@@ -38,8 +38,8 @@ export class UsersFixture extends TestFixture
 			cell_phone: '123-1234123',
 			last_login: null,
 			flags: 15,
-			activated: new Date(),
-			created: new Date()
+			activated: new Date().format("yyyy-mm-dd HH:MM:ss"),
+			created: new Date().format("yyyy-mm-dd HH:MM:ss")
 		},
 	];
 }
