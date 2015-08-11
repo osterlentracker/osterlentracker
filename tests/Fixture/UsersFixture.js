@@ -1,5 +1,7 @@
 //Cake Types
 import { TestFixture } from 'Cake/TestSuite/Fixture/TestFixture';
+import { FlagsBitwiseType } from 'App/Database/Type/FlagsBitwiseType';
+import { OptionsBitwiseType } from 'App/Database/Type/OptionsBitwiseType';
 
 export class UsersFixture extends TestFixture
 {		
@@ -38,6 +40,7 @@ export class UsersFixture extends TestFixture
 			cell_phone: '123-1234123',
 			last_login: null,
 			flags: 15,
+			options: OptionsBitwiseType.add(OptionsBitwiseType.EMAIL, OptionsBitwiseType.NEWS),
 			activated: new Date().format("yyyy-mm-dd HH:MM:ss"),
 			created: new Date().format("yyyy-mm-dd HH:MM:ss")
 		},
