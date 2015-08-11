@@ -17,36 +17,39 @@ export class UserTest extends IntegrationTestCase
 	
 	async testOptionsGetter()
 	{
-		await new Promise((resolve) => {
-			setTimeout(resolve, 2000);
-		});
 		var user = await this.Users.find().where({id: 'ad24b561-5d5b-433a-93d3-5e64b306055a'}).first();
 		this.assertEquals({
 			news: false,
 			email: false,
 			sms: false
 		}, user.options);
+		var user = await this.Users.find().where({id: '6386bc26-c784-8f8c-22ab-2b48af154623'}).first();
+		this.assertEquals({
+			news: true,
+			email: true,
+			sms: false
+		}, user.options);
 	}
 	
 	async testOptionsSetter()
 	{
-		var user = await this.Users.find().where({id: 'ad24b561-5d5b-433a-93d3-5e64b306055a'}).first();
+		var user = await this.Users.find().where({id: '6386bc26-c784-8f8c-22ab-2b48af154623'}).first();
 		user.options = {
 			news: false,
 			email: true,
-			sms: false
+			sms: true
 		};
 		this.assertEquals({
 			news: false,
 			email: true,
-			sms: false
+			sms: true
 		}, user.options);
 		user = await this.Users.save(user);
-		user = await this.Users.find().where({id: 'ad24b561-5d5b-433a-93d3-5e64b306055a'}).first();
+		user = await this.Users.find().where({id: '6386bc26-c784-8f8c-22ab-2b48af154623'}).first();
 		this.assertEquals({
 			news: false,
 			email: true,
-			sms: false
+			sms: true
 		}, user.options);
 	}
 }
