@@ -31,7 +31,7 @@ export class AdministrationController extends Controller
 			.where({
 				'id': await this.request.session().read('user.id')
 			}).first();
-		if((user.flags & 32) !== 32){
+		if(!user.flags.administrator){
 			throw new PermissionDenied();
 		}
 		var data = {
@@ -48,23 +48,20 @@ export class AdministrationController extends Controller
 				cell_phone: user.cell_phone,
 				last_login: user.last_login,
 				created: user.created,
-				options: {
-					news: (user.options & 1) === 1,
-					email: (user.options & 2) === 2,
-					sms: (user.options & 4) === 4,
-				},
+				options: user.options,
 				status: {
-					activated: (user.flags & 1) === 1,
-					enabled: (user.flags & 2) === 2,
-					social: (user.flags & 4) === 4,
-					notification: (user.flags & 8) === 8
+					activated: user.flags.activated,
+					enabled: user.flags.enabled,
+					social: user.flags.social,
+					notification: user.flags.notification
 				},
 				roles: {
-					moderator: (user.flags & 16) === 16,
-					administrator: (user.flags & 32) === 32
+					moderator: user.flags.moderator,
+					administrator: user.flags.administrator
 				}
 			});
 		});
+		//console.log(data.users);
 		var sponsors = await this.Sponsors.find('all').all();
 		sponsors.forEach((sponsor) => {
 			data.sponsors.push(sponsor.toArray());
