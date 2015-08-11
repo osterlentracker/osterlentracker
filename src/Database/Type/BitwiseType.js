@@ -5,17 +5,26 @@ export class BitwiseType extends Type
 {	
 	_bitwiseList = {};
 	
+	static add(...values)
+	{
+		let sum = 0;
+		for(let value of values){
+			if(value > 1){
+				value -= 1;
+				value = Math.pow(2, value);
+			}
+			sum += value;
+		}
+		return sum;
+	}
+	
 	constructor(name)
 	{
 		super(name);
 		for(var key in this.constructor){
 			var value = this.constructor[key];
 			if(typeof value === 'number'){
-				if(value > 1){
-					value -= 1;
-					value = Math.pow(2, value);
-				}
-				this._bitwiseList[key.toLowerCase()] = value;
+				this._bitwiseList[key.toLowerCase()] = BitwiseType.add(value);
 			}
 		}
 	}
