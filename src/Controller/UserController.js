@@ -20,14 +20,14 @@ export class UserController extends Controller
 			return false;
 		}
 		var user = await this.request.session().read('user');
-		if(typeof user === 'undefined' || user === null){
+		if(user === null){
 			return null;
 		}
 		return { 
 			id: user.id, 
 			nickname: user.nickname,
-			moderator: (user.flags & 16) === 16,
-			administrator: (user.flags & 32) === 32
+			moderator: user.flags.moderator,
+			administrator: user.flags.administrator
 		};
 	}
 }

@@ -18,9 +18,9 @@ export class AuthenticationMiddleware
 	{
 		this._localStrategy = new LocalStrategy(this._local);
 		this._facebookStrategy = new FacebookStrategy({
-			clientID: Configure.read('Facebook.id'),
-			clientSecret: Configure.read('Facebook.secret'),
-			callbackURL: "https://"+Configure.read('Web.host')+"/login/facebook/callback"
+			clientID: Configure.read('Facebook.login.id'),
+			clientSecret: Configure.read('Facebook.login.secret'),
+			callbackURL: Configure.read('Web.host')+"/login/facebook/callback"
 		},this._facebook);
 		
 		passport.use(this._localStrategy);
