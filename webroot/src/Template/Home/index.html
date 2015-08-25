@@ -63,14 +63,15 @@
                     <section class="top-bar-section">
                         <ul class="right">
                             <li style="display:none;" data-bind="visible: (user() !== null && user().administrator),css: { 'active': route().page === 'administration' }"><a href="#administration" title="Administration"><i class="fa fa-sliders"></i>  Administration</a></li>
-                            <li><a class="menu-icon" href="#about/donate" title="Donera"><img src="img/swish_icon.png" style="margin-bottom: 5px"></img> Donera</a></li>
+                            <li><a class="menu-icon" route-href="route: donate" title="Donera"><img src="img/swish_icon.png" style="margin-bottom: 5px"></img> Donera</a></li>
                             <li><a class="menu-icon" href="https://www.facebook.com/osterlentracker" title="ÖT på Facebook"><i class="fa fa-facebook-square"></i></a></li>
                         </ul>
                         <ul class="left">
-                            <li data-bind="css: { 'active': route().page === 'home' }"><a href="#" title="Tracker"><i class="fa fa-crosshairs"></i>  Tracker</a></li>
-                            <li data-bind="css: { 'active': route().page === 'forums' || route().page === 'forum' || route().page === 'forum-thread' }"><a href="#forums" title="Forum"><i class="fa fa-comments"></i>  Forum</a></li>
-                            <li data-bind="css: { 'active': route().page === 'about' || route().page === 'press' || route().page === 'contact' }"><a href="#about" title="Kontakt"><i class="fa fa-info-circle"></i>  Om oss</a></li>
+                            <li <a route-href="route: home">Tracker</a></li>
+                            <li><a route-href="route: forum">Forum</a></li>
+                            <li><a route-href="route: about">Om oss</a></li>
                         </ul>
+                            
                     </section>
                 </nav>
            </div>

@@ -12,7 +12,7 @@ export class AppViewModel
 	constructor()
 	{
 	}
-	
+        
 	/**
 	 * 
 	 */

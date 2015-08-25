@@ -10,6 +10,13 @@ export class bootstrap
 	 */
     configureRouter(config, router)
     {
+        config.map([
+            { name: 'home', route: '', href: '#', moduleId: 'src/Template/Home/index', title: 'Hem' },
+            { name: 'forum', route: 'forum', href: '#forum', moduleId: 'src/Template/Forum/index', title: 'Forum' },
+            { name: 'about', route: 'about', href: '#about', moduleId: 'src/Template/About/index', title: 'Om oss' },
+            { name: 'donate', route: 'donate', href: '#donate', moduleId: 'src/Template/Donate/index', title: 'Donera' }
+            
+        ]);
         config.mapUnknownRoutes(instruction => {
 			
 			let url = instruction.fragment.split('/').slice(1);
@@ -33,5 +40,7 @@ export class bootstrap
 			}
 			instruction.config.moduleId = 'src/Template/' + controller + '/' + action;
         });
+        
+        this.router = router;
     }    
 }
