@@ -17,7 +17,8 @@ System.config({
     "utils": "../modules/utils.js",
     "services": "services",
     "components": "components",
-    "App/*": "src/*.js"
+    "App/*": "src/*.js",
+    "Element/*": "src/Template/Element/*.js"
   },
 
   map: {
