@@ -13,6 +13,7 @@ System.config({
     "npm:*": "jspm_packages/npm/*",
     "text": "jspm_packages/github/systemjs/plugin-text@0.0.2.js",
     "css": "jspm_packages/github/systemjs/plugin-css@0.1.10.js",
+	"cakejs": "js/cakejs",
     "modules": "modules",
     "utils": "../modules/utils.js",
     "services": "services",

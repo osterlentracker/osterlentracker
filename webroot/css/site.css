@@ -211,3 +211,9 @@ footer > hr {
 	margin-left: 20px;
 	margin-right: 20px;
 }
+
+top-panel {
+	display: block;
+	margin: 0px auto; 
+	max-width: 62.5rem;
+}
