@@ -18,8 +18,7 @@ export function configure(aurelia)
     .defaultResources()
     .history()
     .router()
-    .eventAggregator();
-
+    .eventAggregator();	
   aurelia.start().then(a => a.setRoot('config/bootstrap', document.body));
 }
 

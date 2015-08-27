@@ -29,9 +29,10 @@ System.config({
     "core-js": "npm:core-js@0.8.4",
     "crossroads": "npm:crossroads@0.12.0",
     "font-awesome": "npm:font-awesome@4.3.0",
+    "foundation": "github:zurb/bower-foundation@5.5.2",
     "hasher": "npm:hasher@1.2.0",
     "jamesflorentino/nanoScrollerJS": "github:jamesflorentino/nanoScrollerJS@0.8.6",
-    "jquery": "npm:jquery@2.1.3",
+    "jquery": "github:components/jquery@2.1.4",
     "knockout": "npm:knockout@3.3.0",
     "knockout-es5": "npm:knockout-es5@0.2.0-alpha",
     "knockout.validation": "npm:knockout.validation@2.0.3",
@@ -147,7 +148,7 @@ System.config({
     },
     "github:jamesflorentino/nanoScrollerJS@0.8.6": {
       "css": "github:systemjs/plugin-css@0.1.10",
-      "jquery": "github:components/jquery@2.1.3"
+      "jquery": "github:components/jquery@2.1.4"
     },
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.3.0"
@@ -191,6 +192,9 @@ System.config({
       "clean-css": "npm:clean-css@3.1.9",
       "fs": "github:jspm/nodelibs-fs@0.1.2",
       "path": "github:jspm/nodelibs-path@0.1.0"
+    },
+    "github:zurb/bower-foundation@5.5.2": {
+      "jquery": "github:components/jquery@2.1.4"
     },
     "npm:amdefine@0.1.0": {
       "fs": "github:jspm/nodelibs-fs@0.1.2",
@@ -256,9 +260,6 @@ System.config({
     },
     "npm:inherits@2.0.1": {
       "util": "github:jspm/nodelibs-util@0.1.0"
-    },
-    "npm:jquery@2.1.3": {
-      "process": "github:jspm/nodelibs-process@0.1.1"
     },
     "npm:knockout-es5@0.2.0-alpha": {
       "knockout": "npm:knockout@3.3.0",
