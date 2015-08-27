@@ -6,7 +6,6 @@ export class Foundation
 {
 	attached ()
 	{
-		console.log("Active");
 		$(document).foundation();
 	}
 }
