@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "./bin/cakejs test",
-	"postinstall": "jspm install"
+    "postinstall": "jspm install"
   },
   "repository": {
     "type": "git",
@@ -33,6 +33,12 @@
   "jspm": {
     "directories": {
       "baseURL": "webroot"
+    },
+    "dependencies": {
+      "aurelia-bootstrapper": "github:aurelia/bootstrapper@^0.16.0",
+      "aurelia-framework": "github:aurelia/framework@^0.15.0",
+      "foundation": "github:zurb/bower-foundation@^5.5.2",
+      "jquery": "github:components/jquery@^2.1.4"
     },
     "devDependencies": {
       "babel": "npm:babel-core@^5.8.21",

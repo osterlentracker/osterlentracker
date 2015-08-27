@@ -1,0 +1,80 @@
+<template>
+	<require from='Element/navigation'></require>
+	<require from='Element/left-menu'></require>
+	<require from='Element/right-menu'></require>
+	<require from='Element/chat'></require>
+	<require from='Element/feed'></require>
+	<require from='Element/foundation'></require>
+    <!-- Wrapper ------------------------------------------------------------>
+    <div class="off-canvas-wrap" data-offcanvas>
+
+        <!-- Sponsors ------------------------------------------------------->
+        <div></div>
+
+        <!-- Inner Wrapper -------------------------------------------------->
+        <div class="inner-wrap">
+
+            <!-- Navigation ------------------------------------------------->
+            <nav class="tab-bar hide-for-medium-up">
+                <section class="left-small">
+                    <a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a>
+                </section>
+                <section class="middle tab-bar-section">
+                    <h1 class="title">Österlentracker</h1>
+                </section>
+                <section class="right-small">
+                    <a class="right-off-canvas-toggle menu-icon" href="#"><span></span></a>
+                </section>
+            </nav>
+
+			<aside class="left-off-canvas-menu">
+				<left-menu></left-menu>
+			</aside>
+			<aside class="right-off-canvas-menu">
+				<right-menu></right-menu>           
+			</aside>
+
+            <!-- Login|Settings|Logout -------------------------------------->
+            <div class="contain-to-grid hide-for-small-only">
+                <top-panel></top-panel>
+            </div>
+
+            <!-- Header ----------------------------------------------------->
+            <header class="hide-for-small-only">
+                <img id="logotype" src="img/logga.png" alt="logo" />
+            </header>
+
+			<div class="contain-to-grid sticky">
+				<nav class="top-bar show-for-medium-up" data-topbar role="navigation" data-options="sticky_on: large">
+					<section class="top-bar-section">
+						<navigation></navigation>
+					</section>
+				</nav>
+			</div>
+
+			<section class="main-section">
+				<div class="row">
+					<div class="large-9 columns">
+						<div id="view">
+							<router-view></router-view>
+						</div>
+					</div>
+					<aside class="large-3 columns show-for-medium-up">
+						<chat></chat>                  
+						<br />
+						<feed></feed>
+					</aside>
+
+					<footer class="row hide-for-small">	
+						<hr>
+						<div class="large-6 columns">
+							<p style="margin-left: 10px;">© Österlentracker 2007-2015</p>
+						</div>
+					</footer>
+				</div>
+			</section>
+			<a class="exit-off-canvas"></a>
+		</div>
+	</div>
+	<foundation></foundation>
+</template>

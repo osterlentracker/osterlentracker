@@ -1,135 +1,22 @@
-<!doctype html>
-<!--[if IE 9]><html class="lt-ie10" lang="en" > <![endif]-->
-<html class="no-js" lang="en" data-useragent="Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Trident/6.0)">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Österlentracker - Vi har koll på åskan åt dig i sydsverige</title>
-		<meta name="description" content="Vi har koll på åskan åt dig i sydsverige."/>
-		<meta name="author" content="Österlentracker"/>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Österlentracker - Vi har koll på åskan åt dig i sydsverige</title>
+        <meta name="description" content="Vi har koll på åskan åt dig i sydsverige."/>
+        <meta name="author" content="Österlentracker"/>
 
-		<link rel="stylesheet" href="css/foundation.css" />
-
-		<script src="js/modernizr.js"></script>
-		<script src="/socket.io/socket.io.js"></script>
-		<script src="js/cakejs.js"></script>
-
-		<link rel="stylesheet" href="css/site.css" />
-
-        <link href='https://fonts.googleapis.com/css?family=Archivo+Narrow:400,400italic,700,700italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-	</head>
-	<body>
-		<div class="off-canvas-wrap" data-offcanvas>
-			<div data-bind="component: { name: 'sponsors' }"></div>
-			<div class="inner-wrap">
-				<nav class="tab-bar hide-for-medium-up">
-					<section class="left-small">
-						<a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a>
-					</section>
-					<section class="middle tab-bar-section">
-						<h1 class="title">Österlentracker</h1>
-					</section>
-					<section class="right-small">
-						<a class="right-off-canvas-toggle menu-icon" href="#"><span></span></a>
-					</section>
-				</nav>
-				<aside class="left-off-canvas-menu">
-					<ul class="off-canvas-list">
-						<li data-bind="if: user() !== null"><a data-bind="text: user().nickname"></a></li>
-						<li><label></label></li> 
-						<li data-bind="visible: user() === null"><a href="/login/facebook"><i class="fa fa-sign-in"></i>  Logga in</a></li> 
-						<li><a href="#"><i class="fa fa-crosshairs"></i>  Tracker</a></li>
-						<li><a href="#forums"><i class="fa fa-comments"></i>  Forum</a></li>
-						<li><a href="#about"><i class="fa fa-info-circle"></i>  Om oss</a></li>
-						<li><label></label></li>
-						<li data-bind="visible: (user() !== null)"><a href="#settings"><i class="fa fa-cog"></i>  Inställningar</a></li> 
-						<li data-bind="visible: (user() !== null && user().administrator)"><a href="#administration"><i class="fa fa-sliders"></i>  Administration</a></li> 
-						<li><label></label></li>
-						<li data-bind="visible: user() !== null"><a data-bind="click: logout"><i class="fa fa-sign-out"></i>  Logga ut</a></li>
-					</ul>
-				</aside>
-				<aside class="right-off-canvas-menu">
-					<ul class="off-canvas-list social">
-						<li><a href="#chat"><i class="fa fa-comments"></i>  Till chatten</a></li>
-					</ul>
-					<div data-bind="component: { name: 'social2' }"></div>
-				</aside>
-				<div class="contain-to-grid hide-for-small-only">
-					<div data-bind="component: { name: 'loginbar' }"></div>
-				</div>
-				<header class="hide-for-small-only">
-					<img id="logotype" src="img/logga.png" alt="logo" />
-				</header>
-				<div class="contain-to-grid sticky">
-					<nav class="top-bar show-for-medium-up" data-topbar role="navigation" data-options="sticky_on: large">
-						<section class="top-bar-section">
-							<ul class="right">
-								<li style="display:none;" data-bind="visible: (user() !== null && user().administrator),css: { 'active': route().page === 'administration' }"><a href="#administration" title="Administration"><i class="fa fa-sliders"></i>  Administration</a></li>
-								<li><a class="menu-icon" href="#about/donate" title="Donera"><img src="img/swish_icon.png" style="margin-bottom: 5px"></img> Donera</a></li>
-								<li><a class="menu-icon" href="https://www.facebook.com/osterlentracker" title="ÖT på Facebook"><i class="fa fa-facebook-square"></i></a></li>
-							</ul>
-							<ul class="left">
-								<li data-bind="css: { 'active': route().page === 'home' }"><a href="#" title="Tracker"><i class="fa fa-crosshairs"></i>  Tracker</a></li>
-								<li data-bind="css: { 'active': route().page === 'forums' || route().page === 'forum' || route().page === 'forum-thread' }"><a href="#forums" title="Forum"><i class="fa fa-comments"></i>  Forum</a></li>
-								<li data-bind="css: { 'active': route().page === 'about' || route().page === 'press' || route().page === 'contact' }"><a href="#about" title="Kontakt"><i class="fa fa-info-circle"></i>  Om oss</a></li>
-							</ul>
-						</section>
-					</nav>
-				</div>
-				<section class="main-section">
-					<div class="row">
-						<div class="large-9 columns">
-							<div id="page1" data-bind="component: { name: route().page, params: route }"><div class="show-for-small" style="text-align: center;"><img src="/img/loading.gif"/></div></div>&nbsp;
-						</div>
-						<aside class="large-3 columns show-for-medium-up">
-							<div data-bind="if: route().page !== 'chatPage'">
-								<div data-bind="component: { name: 'chat' }"></div>
-							</div>
-							<br />
-							<div data-bind="component: { name: 'social' }"></div>
-							<!--- <div class="panel">
-								<h5>Featured</h5>
-								<p>Pork drumstick turkey fugiat. Tri-tip elit turducken pork chop in. Swine short ribs meatball irure bacon nulla pork belly cupidatat meatloaf cow.</p>
-								<a href="#">Read More →</a>
-							</div> -->
-						</aside>
-
-						<footer class="row hide-for-small">	
-							<hr>
-							<div class="large-6 columns">
-								<p style="margin-left: 10px;">© Österlentracker 2007-2015</p>
-							</div>
-						</footer>
-					</div>
-				</section>
-				<a class="exit-off-canvas"></a>
-			</div>
-		</div>
-		<script src="js/jquery/jquery-2.1.3.min.js"></script>
-		<script src="js/jquery/jquery-fn.js"></script>
-		<script src="js/foundation.min.js"></script>
-		<script>
-			$(document).foundation();
-			
-			$('.off-canvas-list a').click(function(e){
-				$('.off-canvas-wrap').removeClass('move-right');
-			});
-			
-			$('.off-canvas-list a').click(function(e){
-				$('.off-canvas-wrap').removeClass('move-left');
-			});
-
-			var doc = document.documentElement;
-			doc.setAttribute('data-useragent', navigator.userAgent);
-		</script>
-		<script src="jspm_packages/system.js" type="text/javascript"></script>
-		<script src="config.js" type="text/javascript"></script>
-		<script src="js/site.js" type="text/javascript"></script>
-		<script>
-			System.import('app/app').then(function () {
-				console.log('Application loaded.');
-			});
-		</script> 
-	</body>
+        <link rel="stylesheet" href="css/foundation.css" />        
+        <link rel="stylesheet" href="css/site.css" />
+    </head>
+    <body aurelia-app="main">
+        <script src="jspm_packages/system.js"></script>
+        <script src="config.js"></script>        
+        <script>
+                System.import('aurelia-bootstrapper').then(function () {
+                        console.log('Application loaded.');
+                });
+        </script> 
+    </body>
 </html>
