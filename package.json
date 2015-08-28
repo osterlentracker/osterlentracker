@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "./bin/cakejs test",
-    "postinstall": "jspm install"
+    "postinstall": "npm install -g jspm;jspm install"
   },
   "repository": {
     "type": "git",
