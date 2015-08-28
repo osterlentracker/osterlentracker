@@ -11,41 +11,41 @@ Type.map('options_bitwise', 'App/Database/Type/OptionsBitwiseType');
 Type.map('flags_bitwise', 'App/Database/Type/FlagsBitwiseType');
 require(path.resolve(__dirname,'..','config','bootstrap'));
 Configure.write('Datasources', {
-	"Web": {
-		"port": 31337,
-		"host": "http://localhost:31337"
+	"default": {
+		"driver": "Mysql",
+		"host": "127.0.0.1",
+		"username": "test",
+		"password": "test",
+		"database": "test"
 	},
-	"Datasources": {
-		"default": {
-			"driver": "Mysql",
-			"host": "127.0.0.1",
-			"username": "test",
-			"password": "test",
-			"database": "test"
-		},
-		"test": {
-			"driver": "Mysql",
-			"host": "127.0.0.1",
-			"username": "test",
-			"password": "test",
-			"database": "test"
-		}
-	},
-	"Facebook": {
-		"login": {
-			"id": "test",
-			"secret": "test"
-		},
-		"feed": {
-			"id": "test",
-			"secret": "test"
-		}
-	},
-	"SMTP": {
-		"service": "SMTP",
-		"host": "",
-		"port": 25,
-		"ignoreTLS": true
+	"test": {
+		"driver": "Mysql",
+		"host": "127.0.0.1",
+		"username": "test",
+		"password": "test",
+		"database": "test"
 	}
 });
-ConnectionManager.config(Configure.consume('Datasources'));
+Configure.write('Web', {
+	"port": 31337,
+	"host": "http://localhost:31337"
+});
+Configure.write('Facebook', {
+	"login": {
+		"id": "test",
+		"secret": "test"
+	},
+	"feed": {
+		"id": "test",
+		"secret": "test"
+	}
+});
+Configure.write('SMTP', {
+	"service": "SMTP",
+	"host": "",
+	"port": 25,
+	"ignoreTLS": true
+});
+if(ConnectionManager.configured().length === 0){
+	ConnectionManager.config(Configure.consume('Datasources'));
+}
