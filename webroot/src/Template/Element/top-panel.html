@@ -1,5 +1,10 @@
 <template>
-	<span class="right">
-		<span>Logga in</span>
+	<span class="right" style="${initialized === false?'display:none':''}">
+		<span style="${logined === true?'':'display:none'}">
+			${nickname}
+		</span>
+		<span style="${logined === false?'':'display:none'}">
+			<a href="/#/Inloggning">Logga in</a>
+		</span>
 	</span>
 </template>

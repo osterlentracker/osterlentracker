@@ -15,16 +15,11 @@ export class UserController extends Controller
 	 */
 	async getUserDetails()
 	{
-		if(!await this.request.session().check('info.hasTriedToAuthenticate')){
-			await this.request.session().write('info.hasTriedToAuthenticate',true);
-			return false;
-		}
 		var user = await this.request.session().read('user');
-		if(user === null){
+		if(typeof user === 'undefined' || user === null){
 			return null;
 		}
 		return { 
-			id: user.id, 
 			nickname: user.nickname,
 			moderator: user.flags.moderator,
 			administrator: user.flags.administrator

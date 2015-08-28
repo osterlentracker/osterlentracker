@@ -15,6 +15,20 @@ export class UserTest extends IntegrationTestCase
 		this.Users = await TableRegistry.get('Users');
 	}
 	
+	async testGetUserDetail()
+	{
+		await this.get({controller: 'User', action: 'getUserDetails'});
+		await this.assertResponseOk();
+		await this.assertResponseEquals(null);
+		var user = await this.Users.find().where({id: 'ad24b561-5d5b-433a-93d3-5e64b306055a'}).first();
+		await this.session({
+			"user": user
+		});
+		await this.get({controller: 'User', action: 'getUserDetails'});
+		await this.assertResponseOk();
+		await this.assertResponseEquals({"nickname":"John Doe","moderator":true,"administrator":true});
+	}
+	
 	async testOptionsGetter()
 	{
 		var user = await this.Users.find().where({id: 'ad24b561-5d5b-433a-93d3-5e64b306055a'}).first();

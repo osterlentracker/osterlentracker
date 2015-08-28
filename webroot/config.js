@@ -19,7 +19,8 @@ System.config({
     "services": "services",
     "components": "components",
     "App/*": "src/*.js",
-    "Element/*": "src/Template/Element/*.js"
+    "Element/*": "src/Template/Element/*.js",
+	"Service/*": "src/Service/*.js"
   },
 
   map: {
