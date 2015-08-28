@@ -21,6 +21,10 @@ export class bootstrap
 			
 			let url = instruction.fragment.split('/').slice(1);
 			
+			if(url[0] === "_=_"){
+				url = [""];
+				window.location.href = "/#/";
+			}
 			//
 			// TODO
 			// Maybe switch to regexp and more error handling...
