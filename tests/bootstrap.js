@@ -33,12 +33,12 @@ Configure.write('Datasources', {
 	},
 	"Facebook": {
 		"login": {
-			"id": "",
-			"secret": ""
+			"id": "test",
+			"secret": "test"
 		},
 		"feed": {
-			"id": "",
-			"secret": ""
+			"id": "test",
+			"secret": "test"
 		}
 	},
 	"SMTP": {
