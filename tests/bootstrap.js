@@ -9,7 +9,7 @@ import { Type } from 'Cake/Database/Type';
 
 Type.map('options_bitwise', 'App/Database/Type/OptionsBitwiseType');
 Type.map('flags_bitwise', 'App/Database/Type/FlagsBitwiseType');
-
+require(path.resolve(__dirname,'..','config','bootstrap'));
 Configure.write('Datasources', {
 	"Web": {
 		"port": 31337,
