@@ -48,3 +48,4 @@ Configure.write('Datasources', {
 		"ignoreTLS": true
 	}
 });
+ConnectionManager.config(Configure.consume('Datasources'));
