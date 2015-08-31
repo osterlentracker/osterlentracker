@@ -13,14 +13,15 @@ System.config({
     "npm:*": "jspm_packages/npm/*",
     "text": "jspm_packages/github/systemjs/plugin-text@0.0.2.js",
     "css": "jspm_packages/github/systemjs/plugin-css@0.1.10.js",
-	"cakejs": "js/cakejs",
+    "cakejs": "js/cakejs",
     "modules": "modules",
     "utils": "../modules/utils.js",
     "services": "services",
     "components": "components",
     "App/*": "src/*.js",
     "Element/*": "src/Template/Element/*.js",
-	"Service/*": "src/Service/*.js"
+	"Module/*": "src/Template/Module/*.js",
+    "Service/*": "src/Service/*.js"
   },
 
   map: {
@@ -38,7 +39,7 @@ System.config({
     "knockout": "npm:knockout@3.3.0",
     "knockout-es5": "npm:knockout-es5@0.2.0-alpha",
     "knockout.validation": "npm:knockout.validation@2.0.3",
-    "leaflet": "github:leaflet/leaflet@0.7.3",
+    "leaflet": "github:Leaflet/Leaflet@0.7.3",
     "leaflet/leaflet": "github:leaflet/leaflet@0.7.3",
     "malihu-custom-scrollbar-plugin": "npm:malihu-custom-scrollbar-plugin@3.0.8",
     "systemjs/plugin-css": "github:systemjs/plugin-css@0.1.10",

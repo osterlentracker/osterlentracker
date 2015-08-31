@@ -6,7 +6,7 @@ import {ConventionalViewStrategy} from 'aurelia-framework';
  * 
  */
 LogManager.addAppender(new ConsoleAppender());
-LogManager.setLevel(LogManager.logLevel.debug);
+LogManager.setLevel(LogManager.logLevel.error);
 
 /**
  * 
