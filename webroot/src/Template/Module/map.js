@@ -1,14 +1,18 @@
 import $ from 'jquery';
 import leaflet from 'leaflet';
 
-export class Map
+import { AppModule } from 'App/Template/AppModule';
+
+export class Map extends AppModule
 {
 	element = null;
 	map = null;
 	resolve = null;
 	reject = null;
+	
 	constructor()
 	{
+		super();
 		this.id = 'map_'+(new Date().getTime());
 	}
 	

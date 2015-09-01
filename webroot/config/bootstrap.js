@@ -32,8 +32,9 @@ export class bootstrap
 			//
 			
 			let controller = url[0];
-			if (controller.length === 0)
+			if (controller.length === 0){
 				controller = '/';
+			}
 
 			if (controller in routes) {
 				controller = routes[controller];
