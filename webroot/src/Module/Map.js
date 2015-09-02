@@ -1,7 +1,7 @@
 import $ from 'jquery';
 import leaflet from 'leaflet';
 
-import { AppModule } from 'App/Template/AppModule';
+import { AppModule } from 'App/Module/AppModule';
 
 export class Map extends AppModule
 {
