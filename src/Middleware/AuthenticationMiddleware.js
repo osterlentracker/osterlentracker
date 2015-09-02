@@ -47,7 +47,7 @@ export class AuthenticationMiddleware
 						facebook_id: profile.id
 					}).first();
 			if(user === null){
-				user = await Users.patchEntity(Users.newEntity(), {
+				user = await Users.newEntity({
 					facebook_id: profile.id,
 					activated: new Date(),
 					created: new Date(),
@@ -98,8 +98,7 @@ export class AuthenticationMiddleware
 		}catch(e){
 			console.log(e);
 		}
-		response.writeHead(200, {'Content-Type': 'image/gif'});
-		response.write('data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==');
+		response.redirect('/#/Inloggning/misslyckades');
 		response.end();
 	}
 	
@@ -110,8 +109,7 @@ export class AuthenticationMiddleware
 		}catch(e){
 			console.log(e);
 		}
-		response.writeHead(200, {'Content-Type': 'image/gif'});
-		response.write('data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==');
+		response.redirect('/#/Inloggning/lyckades');
 		response.end();
 	}
 	

@@ -1,7 +1,5 @@
 import { Authentication } from 'Service/Authentication';
 
-import cakejs from 'cakejs';
-
 export class TopPanel
 {	
 	initialized = false;

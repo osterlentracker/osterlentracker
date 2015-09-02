@@ -1,3 +1,29 @@
 <template>
-	Chat
+	<div if.bind='initialized'>
+		<div style="height: 300px; overflow-y: auto; padding: 8px; background: #333333">
+			<div class="chat">
+				<div class="chat post" repeat.for="message of messages">
+					<b class="date">${message.user.name}</b><br>
+					<div>
+						<span class="fa fa-quote-left"></span> ${message.text}
+					</div>
+					<small>${message.datetime}</small>
+					<br>
+					<br>
+				</div>
+			</div>
+		</div>
+		<span style="${logined === true?'':'display:none'}">
+			<form submit.delegate="submit()">
+				<div class="row collapse">
+					<div class="small-9 columns">
+						<input type="text" value.bind="text" style="height: 44px"/>
+					</div>
+					<div class="small-3 columns">
+						<button class="button small" style="padding-left:21px;padding-right:21px;"><span class="fa fa-send"></span></button>
+					</div>
+				</div>
+			</form>
+		</span>
+	</div>
 </template>
