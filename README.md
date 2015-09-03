@@ -1,4 +1,4 @@
-# Osterlentracker
+# Österlentracker
 
 [![npm](https://travis-ci.org/osterlentracker/osterlentracker.svg?branch=master)](https://travis-ci.org/osterlentracker/osterlentracker)
 
@@ -14,7 +14,7 @@ clone project into folder and run following commands
 
 ```bash
 $ npm install
-$ npm install
+$ jspm install
 $ cp config/app.default.json config/app.json
 ```
 # Configuration
@@ -23,3 +23,20 @@ Modify config/app.json and fill in all empty fields with proper values. You do n
 the following fields.
 
 * Blitzortung
+
+# Running server
+
+```bash
+$ bin/cakejs server
+```
+
+# Testing
+
+```bash
+$ bin/cakejs test
+```
+
+# Extra links
+
+[CakeJS CookBook](https://book.cakejs.net) - Backend Framework
+[Aurelia Documentation](http://aurelia.io/docs.html) - Frontend Framework
