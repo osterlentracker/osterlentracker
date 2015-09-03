@@ -39,4 +39,5 @@ $ bin/cakejs test
 # Extra links
 
 [CakeJS CookBook](https://book.cakejs.net) - Backend Framework
+
 [Aurelia Documentation](http://aurelia.io/docs.html) - Frontend Framework
