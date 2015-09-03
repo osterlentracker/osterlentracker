@@ -1,11 +1,11 @@
 import { TestCase } from 'Cake/TestSuite/TestCase';
 
-var LightningContainer = require(WWW_ROOT+'/src/Service/Tracker/LightningContainer').LightningContainer;
-var Lightning = require(WWW_ROOT+'/src/Service/Tracker/Lightning').Lightning;
+import { LightningContainer } from 'Web/Service/Tracker/LightningContainer';
+import { Lightning } from 'Web/Service/Tracker/Lightning';
 
-export class DevTest extends TestCase
+export class TrackerTest extends TestCase
 {
-	testTest()
+	testLightningContainer()
 	{
 		var lightningContainer = new LightningContainer();
 		lightningContainer.push(
@@ -40,11 +40,26 @@ export class DevTest extends TestCase
 		var begin = new Date('2010-10-10 02:50');
 		var end = new Date('2010-10-10 06:10');
 		lightningContainer.seek(begin, end);
-		this.assertEquals(lightningContainer.length,3);
+		this.assertEquals(lightningContainer.length,4);
 		
 		var begin = new Date('2010-10-10 03:00');
 		var end = new Date('2010-10-10 06:00');
 		lightningContainer.seek(begin, end);
-		this.assertEquals(lightningContainer.length,3);
+		this.assertEquals(lightningContainer.length,4);
+		
+		var begin = new Date('2010-10-10 08:00');
+		var end = new Date('2010-10-10 09:00');
+		lightningContainer.seek(begin, end);
+		this.assertEquals(lightningContainer.length,0);
+		
+		var begin = new Date('2010-10-10 03:00');
+		var end = new Date('2010-10-10 03:00');
+		lightningContainer.seek(begin, end);
+		this.assertEquals(lightningContainer.length,1);
+		
+		var begin = new Date('2010-10-09 03:00');
+		var end = new Date('2010-10-09 03:00');
+		lightningContainer.seek(begin, end);
+		this.assertEquals(lightningContainer.length,0);
 	}
 }

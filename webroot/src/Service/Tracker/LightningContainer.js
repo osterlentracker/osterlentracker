@@ -17,23 +17,40 @@ export class LightningContainer
 			this._end = this._lightnings.length - 1;
 		}
 		
-		while(this._end > 0 && this._lightnings[this._end].time > end){
-			this._end--;
+		if(this._lightnings.length === 0){
+			this._inalid = true;
+			this._begin = 0;
+			this._end = 0;
+			return;
 		}
 		
-		while(this._end < this._lightnings.length && this._lightnings[this._end].time < end){
+		while(
+			(this._end - 1) in this._lightnings &&
+			end < this._lightnings[this._end].time
+		){
+			this._end--;
+		}
+		while(
+			(this._end + 1) in this._lightnings &&
+			this._lightnings[this._end + 1].time <= end
+		){
 			this._end++;
 		}
 		
 		if(this._begin > this._end){
 			this._begin = this._end;
 		}
-		
-		while(this._begin < this._lightnings.length && this._lightnings[this._begin].time < begin){
+
+		while(
+			(this._begin + 1) in this._lightnings &&
+			this._lightnings[this._begin].time < begin
+		){
 			this._begin++;
 		}
-		
-		while(this._begin > 0 && this._lightnings[this._begin].time > begin){
+		while(
+			(this._begin - 1) in this._lightnings &&
+			begin <= this._lightnings[this._begin - 1].time
+		){
 			this._begin--;
 		}
 		
