@@ -1,14 +1,14 @@
 import $ from 'jquery';
 
 import { AppViewModel } from 'App/Template/AppViewModel';
-import { Map } from 'Module/map';
+import { TrackerMap } from 'App/Module/TrackerMap';
 
 export class Index extends AppViewModel
 {	
 	constructor()
 	{
 		super();
-		this.map = new Map();
+		this.map = new TrackerMap();
 	}
 	
 	bind()
