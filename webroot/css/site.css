@@ -5,9 +5,13 @@
 header {
 	height: 90px;
 	margin: 0px auto;
-	max-width: 62.5rem;
+	max-width: 62.5em;
 }
-
+.strike {
+	color: black;
+	font-size: 1.5em !important;
+	cursor: -webkit-grab !important;
+}
 .main-section {
 	padding-top: 20px;
 }
