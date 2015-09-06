@@ -21,7 +21,9 @@ export class Map extends AppModule
 		this.element = $(selector);
 		this.element.attr({id: this.id});
 		this.map = new leaflet.Map(this.id, {
-			zoomControl: true
+			zoomControl: true,
+			minZoom: 6,
+			maxZoom: 13
 		});
 		this.initialize();
 	}
@@ -43,7 +45,10 @@ export class Map extends AppModule
 		var myIcon = L.divIcon({className: 'fa fa-bolt strike'});
 		L.marker([55.634120, 13.700738], {icon: myIcon}).addTo(this.map);
 		var myIcon = L.divIcon({className: 'fa fa-bolt strike'});
-		L.marker([55.634120, 13.900738], {icon: myIcon}).addTo(this.map);
+		var marker = L.marker([55.634120, 13.900738], {icon: myIcon}).addTo(this.map);
+		setTimeout(() => {
+			$(marker._icon).css({color: 'red'});
+		}, 4000);
 	}
 	
 	setView(lat, lng, zoom)

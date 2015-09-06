@@ -58,7 +58,7 @@ export class LightningContainer
 		(this._begin === this._end &&		
 			(
 				this._lightnings[this._begin].time >= begin &&
-				this._lightnings[this._begin].time <= end	
+				this._lightnings[this._begin].time <= end
 			) === false
 		);
 	}
@@ -82,7 +82,7 @@ export class LightningContainer
 			return false;
 		}
 		for(let index = this._begin; index <= this._end; index++){
-			callback(this._lightnings[index]);
+			callback(this._lightnings[index], index);
 		}
 	}
 	
