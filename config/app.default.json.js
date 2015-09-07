@@ -19,6 +19,10 @@
 			"database": "test"
 		}
 	},
+	"Tracker": {
+		"ip": "",
+		"port": ""
+	},
 	"Facebook": {
 		"login": {
 			"id": "",

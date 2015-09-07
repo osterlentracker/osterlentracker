@@ -1,6 +1,7 @@
 //Cake Types
 import { Exception } from 'Cake/Core/Exception/Exception';
 import { ConnectionManager } from 'Cake/WebSocket/ConnectionManager';
+import { Middleware } from 'Cake/Middleware/Middleware'
 import { TableRegistry } from 'Cake/ORM/TableRegistry';
 import { Configure } from 'Cake/Core/Configure';
 import { Text } from 'Cake/Utility/Text';
@@ -12,9 +13,9 @@ import { Strategy as LocalStrategy } from 'passport-local';
 import { Strategy as FacebookStrategy } from 'passport-facebook';
 import bodyParser from 'body-parser';
 
-export class AuthenticationMiddleware 
-{
-	constructor()
+export class AuthenticationMiddleware extends Middleware
+{	
+	initialize()
 	{
 		this._localStrategy = new LocalStrategy(this._local);
 		this._facebookStrategy = new FacebookStrategy({
@@ -30,6 +31,26 @@ export class AuthenticationMiddleware
 		});
 		passport.deserializeUser(function(id, done) {
 			done(null, id);
+		});
+		
+		this.app.use(passport.initialize());
+		this.app.post('/login/local', bodyParser.urlencoded({ extended: false }), passport.authenticate('local', { successRedirect: '/login/success',failureRedirect: '/login/failed'}));
+		this.app.get('/login/facebook', passport.authenticate('facebook'));
+		this.app.get('/login/facebook/callback', passport.authenticate('facebook', { successRedirect: '/',failureRedirect: '/login/failed' }));
+		this.app.get('/login/success', this._success.bind(this));
+		this.app.get('/login/failed', this._failed.bind(this));
+		this.app.get('/logout', (req, res) => {
+			req.logout();
+			res.redirect('/');
+			req.session.destroy();
+		});
+		this.app.use(async (request, response, next) => {
+			try{
+				await this._formatRequest(request);
+			}catch(e){
+				console.log(e);
+			}
+			next();
 		});
 	}
 	
@@ -111,28 +132,5 @@ export class AuthenticationMiddleware
 		}
 		response.redirect('/#/Inloggning/lyckades');
 		response.end();
-	}
-	
-	use(app)
-	{
-		app.use(passport.initialize());
-		app.post('/login/local', bodyParser.urlencoded({ extended: false }), passport.authenticate('local', { successRedirect: '/login/success',failureRedirect: '/login/failed'}));
-		app.get('/login/facebook', passport.authenticate('facebook'));
-		app.get('/login/facebook/callback', passport.authenticate('facebook', { successRedirect: '/',failureRedirect: '/login/failed' }));
-		app.get('/login/success', this._success.bind(this));
-		app.get('/login/failed', this._failed.bind(this));
-		app.get('/logout', (req, res) => {
-			req.logout();
-			res.redirect('/');
-			req.session.destroy();
-		});
-		app.use(async (request, response, next) => {
-			try{
-				await this._formatRequest(request);
-			}catch(e){
-				console.log(e);
-			}
-			next();
-		});
 	}
 }
